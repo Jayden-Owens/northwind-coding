@@ -16,4 +16,7 @@ export class AppPage {
   getMainHeading() {
     return element(by.css('app-root h1')).getText();
   }
+  navigateToCount2() {
+    return browser.get('/counter2');
+  }
 }

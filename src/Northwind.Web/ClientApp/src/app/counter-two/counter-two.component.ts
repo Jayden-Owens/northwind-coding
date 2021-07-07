@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CounterTwoComponent implements OnInit {
   public currentCount = 0;
+  private increment = 2;
 
   constructor() { }
 
@@ -14,6 +15,6 @@ export class CounterTwoComponent implements OnInit {
   }
 
   public incrementCounter() {
-    this.currentCount++;
+     (this.currentCount = (this.currentCount + this.increment))
   }
 }
