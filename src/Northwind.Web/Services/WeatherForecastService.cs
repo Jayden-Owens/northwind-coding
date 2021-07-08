@@ -22,9 +22,14 @@ namespace Northwind.Web.Services
 		{
 			var rng = new Random();
 			var temperatureC = rng.Next(-20, 55);
+			if (dateTime < DateTime.Now)
+            {
+				throw new ArgumentException("date didnt work");
+            }
 			return new WeatherForecast
 			{
 					Date = dateTime,
+
 					TemperatureC = temperatureC,
 					Summary = SummaryFor(temperatureC)
 			};
