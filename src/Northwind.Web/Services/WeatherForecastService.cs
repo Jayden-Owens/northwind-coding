@@ -30,15 +30,54 @@ namespace Northwind.Web.Services
 			{
 					Date = dateTime,
 
-					TemperatureC = temperatureC,
+					TemperatureC = temperatureC, 
 					Summary = SummaryFor(temperatureC)
+	
 			};
 		}
 
 		public string SummaryFor(int temperature)
 		{
-			var rng = new Random();
-			return Summaries[rng.Next(Summaries.Length)];
+			if (temperature > 21 || temperature < 25)
+			{
+				return Summaries[4];
+			}
+			else if (temperature > 15 || temperature < 20)
+			{
+				return Summaries[3];
+			}
+			else if (temperature > 50 || temperature < 10)
+			{
+				return Summaries[2];
+			}
+			else if (temperature > 10 || temperature < 0)
+			{
+				return Summaries[1];
+			}
+			else if (temperature > 0 || temperature < - 10)
+			{
+				return Summaries[0];
+			}
+			else if (temperature > 30 || temperature < 35)
+			{
+				return Summaries[6];
+			}
+			else if (temperature > 35 || temperature < 40)
+			{
+				return Summaries[7];
+			}
+			else if (temperature > 40 || temperature < 11)
+			{
+				return Summaries[8];
+			}
+			else if (temperature > 25 || temperature < 30)
+			{
+				return Summaries[5];
+			}
+			else
+			{
+				return Summaries[9];
+			}
 		}
 	}
 
