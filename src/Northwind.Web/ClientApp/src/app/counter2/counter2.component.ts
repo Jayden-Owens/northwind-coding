@@ -1,29 +1,28 @@
+import { Template } from '@angular/compiler/src/render3/r3_ast';
 import { Component, Input, OnInit } from '@angular/core';
+import { IntegerDataType } from 'sequelize/types';
 
 @Component({
   selector: 'app-counter2',
   templateUrl: './counter2.component.html',
-  styleUrls: ['./counter2.component.css']
+  styleUrls: ['./counter2.component.css'],
+
 })
+
 export class Counter2Component implements OnInit {
-  public currentCount = 0;
-  public addCount = 0;
+  public  currentCount = 0;
+  public incNumber = 0;
 
-  public increment = 0;
 
-  constructor() { }
+constructor() {
+
+}
 
   ngOnInit() {
   }
 
-  public addCounter() {
-    this.addCount++;
-  }
-  public minusCounter() {
-    this.addCount--;
-  }
-
   public incrementCounter() {
-    (this.currentCount = (this.currentCount + this.addCount))
+    this.incNumber = (<HTMLInputElement>document.getElementById("incNumber")).valueAsNumber;
+    (this.currentCount = (this.currentCount + this.incNumber))
   }
 }

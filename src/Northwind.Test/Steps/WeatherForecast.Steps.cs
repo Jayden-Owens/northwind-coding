@@ -14,7 +14,7 @@ namespace Northwind.Test.Features
 {
 	[FeatureFile("./Features/WeatherForecast.feature")]
 	public sealed class WeatherForecastFeature : Feature
-	{ 
+	{
 		private IWeatherForecastService _weather = null;
 		private WeatherForecast _forecast = null;
 		private Exception _serviceException = null;
@@ -37,23 +37,23 @@ namespace Northwind.Test.Features
 		public void The_forecast_temperature_F_should_be_greater_than(int temperature)
 		{
 			Assert.True(_forecast.TemperatureF > temperature);
-            
+
 		}
 		[When(@"I get the forecast for yesterday")]
 		public void I_get_the_forecast_for_yesterday()
 		{
 			try
-            {
+			{
 
-			_forecast = _weather.ForecastFor(DateTime.Now.AddDays(-1));
-            }
-            catch (Exception ex)
-            {
+				_forecast = _weather.ForecastFor(DateTime.Now.AddDays(-1));
+			}
+			catch (Exception ex)
+			{
 				_serviceException = ex;
-            }
-			
+			}
+
 		}
-		
+
 		[Then(@"the service should throw an argument exception")]
 		public void The_service_should_throw_an_argument_exception()
 		{
@@ -70,7 +70,7 @@ namespace Northwind.Test.Features
 		[Then(@"the temperature 70 F should say mild")]
 		public void I_get_70F_is_mild()
 		{
-			Assert.Equal("Mild",_forecast.Summary); 
+			Assert.Equal("Mild", _forecast.Summary);
 		}
-    }
+	}
 }
